@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { RouterContext } from './index';
+import { RouterContext } from '.';
 
 // 라우터 함수는 children으로 Route Component들을 받는다.
 const Router = ({ children }) => {
@@ -32,9 +32,8 @@ export default Router;
 // Route의 배열인 children을 순회하면서 
 // 현재 path 상태와 같은 children의 path를 찾는다.
 const mountComponent = (path, children) => {
-  const component = children.find(Route => {
-    if (Route.props.path === path) return true;
-  });
+  const component = children
+    .find(Route => Route.props.path === path);
 
   return component?.props.component;
 }
