@@ -10,11 +10,15 @@ const Router = ({ children }) => {
   // componentDidMount시 
   // onpopstate 이벤트리스너에 등록
   useEffect(() => {
-    window.addEventListener(
-      'popstate', 
-      () => setPath(location.pathname)
+    const changePath = () => setPath(location.pathname);
+
+    window.addEventListener('popstate', changePath);
+
+    return () => window.removeEventListener(
+      'popstate',  
+      changePath
     );
-  },[]);
+  }, []);
   
   return (
     <RouterContext.Provider value={{ setPath }}>
