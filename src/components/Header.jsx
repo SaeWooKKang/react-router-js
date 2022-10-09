@@ -1,9 +1,9 @@
-import { useRouter } from '../router';
+import { useRouter } from '../libs/router';
 
 const Header = () => {
   const { push } = useRouter();
   
-  const movePage = (e) => {
+  const movePage = e => {
     if (!e.target.href) return;
     e.preventDefault();
 
@@ -15,14 +15,10 @@ const Header = () => {
     <header onClick={ movePage }>
       <ul>
         <li>
-          <a href="/" className="navigate">
-            landing
-          </a>
+          <a href="/" className="navigate">landing</a>
         </li>
         <li>
-          <a href="/about" className="navigate">
-            about
-          </a>
+          <a href="/about" className="navigate">about</a>
         </li>
       </ul>
     </header>

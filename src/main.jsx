@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 
 // Router
-import { Router, Route } from './router';
+import { Router, Route } from './libs/router';
 
 // Components
 import LandingPage from './components/pages/Landing';
